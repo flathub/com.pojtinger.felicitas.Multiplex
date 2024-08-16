@@ -1,5 +1,5 @@
 {
-  "app-id": "com.pojtinger.felicitas.Multiplex",
+  "id": "com.pojtinger.felicitas.Multiplex",
   "runtime": "org.gnome.Platform",
   "runtime-version": "46",
   "sdk": "org.gnome.Sdk",
@@ -18,23 +18,35 @@
   ],
   "modules": [
     {
+      "name": "blueprint-compiler",
+      "buildsystem": "meson",
+      "cleanup": ["*"],
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://gitlab.gnome.org/jwestman/blueprint-compiler",
+          "tag": "v0.12.0"
+        }
+      ]
+    },
+    {
       "name": "multiplex",
       "buildsystem": "simple",
       "build-commands": [
         "mkdir -p vendor && cp modules.txt vendor/modules.txt",
         ". /usr/lib/sdk/golang/enable.sh && export GOBIN=\"/app/bin\" && go generate ./... && go install -v -mod=vendor .",
         "desktop-file-install --dir=/app/share/applications $FLATPAK_ID.desktop",
-        "install -D -m 0644 $FLATPAK_ID.metainfo.xml /app/share/metainfo/$FLATPAK_ID.metainfo.xml",
+        "install -D -m 0644 internal/resources/$FLATPAK_ID.metainfo.xml /app/share/metainfo/$FLATPAK_ID.metainfo.xml",
         "for icon in 16x16 22x22 24x24 32x32 36x36 48x48 64x64 72x72 96x96 128x128 192x192 256x256 512x512; do install -D -m 0644 docs/icon-${icon}.png /app/share/icons/hicolor/${icon}/apps/$FLATPAK_ID.png; done"
       ],
       "sources": [
         {
           "type": "git",
           "url": "https://github.com/pojntfx/multiplex.git",
-          "tag": "v0.1.4",
-          "commit": "c41c23b42f3c5a84417dc02316c9be93458dfe04"
+          "tag": "v0.1.5",
+          "commit": "8d56951537a0613139b589ae97bb14637259e606"
         },
-        "dependencies.json"
+        "go.mod.json"
       ]
     }
   ]
