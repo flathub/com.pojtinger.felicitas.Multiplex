@@ -1,10 +1,5 @@
 [
   {
-    "dest": "vendor",
-    "path": "modules.txt",
-    "type": "file"
-  },
-  {
     "dest": "vendor/github.com/anacrolix/torrent",
     "sha256": "3fdd30bdb553e110382a98d83a6adf7d0ca74615152ae6e65912a186167a470f",
     "strip-components": 3,
