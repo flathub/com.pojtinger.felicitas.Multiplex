@@ -1,7 +1,7 @@
 {
   "id": "com.pojtinger.felicitas.Multiplex",
   "runtime": "org.gnome.Platform",
-  "runtime-version": "46",
+  "runtime-version": "47",
   "sdk": "org.gnome.Sdk",
   "sdk-extensions": ["org.freedesktop.Sdk.Extension.golang"],
   "command": "multiplex",
@@ -25,7 +25,7 @@
         {
           "type": "git",
           "url": "https://gitlab.gnome.org/jwestman/blueprint-compiler",
-          "tag": "v0.12.0"
+          "tag": "v0.14.0"
         }
       ]
     },
@@ -43,8 +43,8 @@
         {
           "type": "git",
           "url": "https://github.com/pojntfx/multiplex.git",
-          "tag": "v0.1.5",
-          "commit": "8d56951537a0613139b589ae97bb14637259e606"
+          "tag": "v0.1.6",
+          "commit": "bd66e2e3bcbb26ff7881ae53ea2e173d09510cb6"
         },
         "go.mod.json"
       ]
