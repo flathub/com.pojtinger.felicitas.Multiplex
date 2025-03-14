@@ -25,7 +25,7 @@
         {
           "type": "git",
           "url": "https://gitlab.gnome.org/jwestman/blueprint-compiler",
-          "tag": "v0.14.0"
+          "tag": "v0.16.0"
         }
       ]
     },
@@ -43,8 +43,8 @@
         {
           "type": "git",
           "url": "https://github.com/pojntfx/multiplex.git",
-          "tag": "v0.1.6",
-          "commit": "bd66e2e3bcbb26ff7881ae53ea2e173d09510cb6"
+          "tag": "v0.1.7",
+          "commit": "1a310a81a19bef54888d619684606a4ff7c3c688"
         },
         "go.mod.json"
       ]
