@@ -1,16 +1,16 @@
 {
   "id": "com.pojtinger.felicitas.Multiplex",
   "runtime": "org.gnome.Platform",
-  "runtime-version": "47",
+  "runtime-version": "49",
   "sdk": "org.gnome.Sdk",
   "sdk-extensions": ["org.freedesktop.Sdk.Extension.golang"],
   "command": "multiplex",
   "finish-args": [
-    "--share=network",
+    "--socket=wayland",
     "--socket=fallback-x11",
     "--share=ipc",
-    "--socket=wayland",
     "--device=dri",
+    "--share=network",
     "--filesystem=xdg-download:rw",
     "--filesystem=xdg-videos:rw",
     "--filesystem=/tmp:rw",
@@ -25,7 +25,13 @@
         {
           "type": "git",
           "url": "https://gitlab.gnome.org/jwestman/blueprint-compiler",
-          "tag": "v0.16.0"
+          "tag": "v0.18.0",
+          "x-checker-data": {
+            "type": "git",
+            "tag-pattern": "^v([\\d.]+)$",
+            "version-scheme": "semantic"
+          },
+          "commit": "07c9c9df9cd1b6b4454ecba21ee58211e9144a4b"
         }
       ]
     },
@@ -35,16 +41,22 @@
       "build-commands": [
         "mkdir -p vendor && cp modules.txt vendor/modules.txt",
         ". /usr/lib/sdk/golang/enable.sh && export GOBIN=\"/app/bin\" && go generate ./... && go install -v -mod=vendor .",
-        "desktop-file-install --dir=/app/share/applications $FLATPAK_ID.desktop",
-        "install -D -m 0644 internal/resources/$FLATPAK_ID.metainfo.xml /app/share/metainfo/$FLATPAK_ID.metainfo.xml",
-        "for icon in 16x16 22x22 24x24 32x32 36x36 48x48 64x64 72x72 96x96 128x128 192x192 256x256 512x512; do install -D -m 0644 docs/icon-${icon}.png /app/share/icons/hicolor/${icon}/apps/$FLATPAK_ID.png; done"
+        "desktop-file-install --dir=/app/share/applications assets/meta/$FLATPAK_ID.desktop",
+        "install -D -m 0644 assets/resources/metainfo.xml /app/share/metainfo/$FLATPAK_ID.metainfo.xml",
+        "install -D -m 0644 assets/meta/icon.svg /app/share/icons/hicolor/scalable/apps/$FLATPAK_ID.svg",
+        "mkdir -p /app/share/locale && cp -r po/* /app/share/locale/"
       ],
       "sources": [
         {
           "type": "git",
           "url": "https://github.com/pojntfx/multiplex.git",
-          "tag": "v0.1.7",
-          "commit": "1a310a81a19bef54888d619684606a4ff7c3c688"
+          "tag": "v0.1.8",
+          "commit": "061dbb1bc35c3e8b3f3ea6e6ffb1b38614c13438",
+          "x-checker-data": {
+            "type": "git",
+            "tag-pattern": "^v([\\d.]+)$",
+            "version-scheme": "semantic"
+          }
         },
         "go.mod.json"
       ]
