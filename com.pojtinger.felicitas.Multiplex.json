@@ -49,8 +49,7 @@
         {
           "type": "git",
           "url": "https://github.com/pojntfx/multiplex.git",
-          "tag": "v0.1.7",
-          "commit": "1a310a81a19bef54888d619684606a4ff7c3c688"
+          "commit": "13f5d7c677ff2b6d3238c913b1165747b7855a6a"
         },
         "go.mod.json"
       ]
