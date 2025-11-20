@@ -50,8 +50,8 @@
         {
           "type": "git",
           "url": "https://github.com/pojntfx/multiplex.git",
-          "tag": "v0.1.8",
-          "commit": "061dbb1bc35c3e8b3f3ea6e6ffb1b38614c13438",
+          "tag": "v0.1.9",
+          "commit": "6de26335df50c178f415ea7d0639193c40d9ba6c",
           "x-checker-data": {
             "type": "git",
             "tag-pattern": "^v([\\d.]+)$",
