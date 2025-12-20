@@ -32,8 +32,8 @@
         {
           "type": "git",
           "url": "https://github.com/pojntfx/multiplex.git",
-          "tag": "v0.1.10",
-          "commit": "925750a86d0a1c546ff674313d44f8bfdfd418df",
+          "tag": "v0.1.11",
+          "commit": "9ec367eeb0521af1d4818fdbed76d6481795694f",
           "x-checker-data": {
             "type": "git",
             "tag-pattern": "^v([\\d.]+)$",
