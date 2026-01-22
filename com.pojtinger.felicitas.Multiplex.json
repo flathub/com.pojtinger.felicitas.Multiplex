@@ -26,14 +26,16 @@
         "desktop-file-install --dir=/app/share/applications assets/meta/$FLATPAK_ID.desktop",
         "install -D -m 0644 assets/resources/metainfo.xml /app/share/metainfo/$FLATPAK_ID.metainfo.xml",
         "install -D -m 0644 assets/meta/icon.svg /app/share/icons/hicolor/scalable/apps/$FLATPAK_ID.svg",
-        "mkdir -p /app/share/locale && (cd po && find . -name '*.mo' -exec cp --parents {} /app/share/locale/ \\;)"
+        "mkdir -p /app/share/locale && (cd po && find . -name '*.mo' -exec cp --parents {} /app/share/locale/ \\;)",
+        "install -D -m 0644 assets/resources/index.gschema.xml /app/share/glib-2.0/schemas/$FLATPAK_ID.gschema.xml",
+        "glib-compile-schemas /app/share/glib-2.0/schemas"
       ],
       "sources": [
         {
           "type": "git",
           "url": "https://github.com/pojntfx/multiplex.git",
-          "tag": "v0.1.11",
-          "commit": "9ec367eeb0521af1d4818fdbed76d6481795694f",
+          "tag": "v0.1.12",
+          "commit": "f82f365d24d1e17690c3913260c43c18c7654683",
           "x-checker-data": {
             "type": "git",
             "tag-pattern": "^v([\\d.]+)$",
